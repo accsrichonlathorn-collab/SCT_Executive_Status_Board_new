@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>SCT Executive Status Board · Asset Management 2569</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", "Sukhumvit Set", "Prompt", sans-serif;
+  background: #f4f6fa;
+  color: #1a2332;
+  padding: 20px;
+  line-height: 1.5;
+}
+.container { max-width: 1280px; margin: 0 auto; }
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg,#0b3d91 0%, #1e5fc7 100%);
+  color: white;
+  padding: 24px 28px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.header h1 { font-size: 26px; margin-bottom: 4px; }
+.header .meta { font-size: 13px; color: #c8d6f0; }
+.header .meta strong { color: white; }
+.header .updated {
+  position: absolute; right: 28px; top: 24px;
+  background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; backdrop-filter: blur(10px);
+}
+
+/* HERO PROGRESS */
+.hero {
+  background: white;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  align-items: center;
+  border-left: 6px solid #ff8c00;
+  box-shadow: 0 2px 8px rgba(11,61,145,.06);
+}
+.hero-circle {
+  width: 180px; height: 180px;
+  position: relative;
+  margin: 0 auto;
+}
+.hero-circle svg { transform: rotate(-90deg); }
+.hero-circle-text {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center;
+}
+.hero-circle-pct { font-size: 38px; font-weight: 700; color: #0b3d91; }
+.hero-circle-label { font-size: 11px; color: #5a6c80; text-transform: uppercase; letter-spacing: 1px; }
+.hero-info h2 { font-size: 20px; color: #0b3d91; margin-bottom: 6px; }
+.hero-info p { font-size: 14px; color: #5a6c80; margin-bottom: 14px; }
+.hero-status {
+  display: inline-block;
+  padding: 8px 18px; border-radius: 22px;
+  font-weight: 600; font-size: 14px;
+  background: #fff4d6; color: #8a6d00;
+}
+.hero-key-deliverables { display: flex; gap: 16px; margin-top: 14px; }
+.hero-kd { background: #f4f6fa; padding: 10px 14px; border-radius: 8px; flex: 1; }
+.hero-kd-label { font-size: 10px; color: #5a6c80; text-transform: uppercase; }
+.hero-kd-value { font-size: 18px; font-weight: 700; color: #0b3d91; }
+
+/* KPI STRIP */
+.kpi-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+.kpi-card {
+  background: white; border-radius: 12px; padding: 18px 20px;
+  border-top: 4px solid #0b3d91;
+  box-shadow: 0 1px 4px rgba(11,61,145,.05);
+}
+.kpi-card.green { border-color: #1f7a3a; }
+.kpi-card.orange { border-color: #ff8c00; }
+.kpi-card.red { border-color: #b91c1c; }
+.kpi-card-icon { font-size: 24px; margin-bottom: 8px; }
+.kpi-card-title { font-size: 12px; color: #5a6c80; text-transform: uppercase; letter-spacing: .5px; }
+.kpi-card-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; }
+.kpi-target { font-size: 12px; color: #5a6c80; }
+.kpi-actual { font-size: 24px; font-weight: 700; color: #0b3d91; }
+.kpi-bar { height: 6px; background: #e3e8f0; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+.kpi-bar-fill { height: 100%; background: #0b3d91; border-radius: 3px; transition: width 0.6s; }
+.kpi-bar-fill.green { background: #1f7a3a; }
+.kpi-bar-fill.orange { background: #ff8c00; }
+.kpi-bar-fill.red { background: #b91c1c; }
+
+/* MOVES TIMELINE */
+.moves-section {
+  background: white; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
+  box-shadow: 0 1px 4px rgba(11,61,145,.05);
+}
+.section-title {
+  font-size: 16px; color: #0b3d91; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+  padding-bottom: 10px; border-bottom: 2px solid #0b3d91;
+}
+.move-row {
+  display: grid;
+  grid-template-columns: 32px 220px 90px 1fr 100px 100px;
+  align-items: center;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e3e8f0;
+  gap: 14px;
+}
+.move-row:last-child { border-bottom: none; }
+.move-row:hover { background: #f9fafc; }
+.move-light { width: 24px; height: 24px; border-radius: 50%; }
+.move-light.green { background: #1f7a3a; box-shadow: 0 0 0 4px #d4edda; }      /* Completed */
+.move-light.blue { background: #1e5fc7; box-shadow: 0 0 0 4px #cce5ff; }       /* In Progress */
+.move-light.orange { background: #ff8c00; box-shadow: 0 0 0 4px #ffe5cc; }     /* Blocked */
+.move-light.red { background: #b91c1c; box-shadow: 0 0 0 4px #f8d7da; }        /* Not Started */
+.move-light.yellow { background: #eab308; box-shadow: 0 0 0 4px #fff3cd; }     /* On Hold */
+.move-light.gray { background: #adb5bd; box-shadow: 0 0 0 4px #e9ecef; }       /* (legacy) */
+.move-name { font-weight: 600; color: #0b3d91; font-size: 14px; }
+.move-name-sub { font-size: 11px; color: #5a6c80; margin-top: 2px; }
+.move-time { font-size: 11px; color: #5a6c80; padding: 3px 8px; background: #f4f6fa; border-radius: 4px; text-align: center; }
+.progress-wrap { display: flex; align-items: center; gap: 10px; }
+.progress-bar { flex: 1; height: 8px; background: #e3e8f0; border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg,#1e5fc7,#0b3d91); border-radius: 4px; transition: width 0.6s; }
+.progress-pct { font-size: 12px; font-weight: 600; color: #0b3d91; min-width: 32px; }
+.move-impact { font-size: 11px; color: #5a6c80; text-align: right; }
+.move-impact strong { color: #0b3d91; font-size: 13px; display: block; }
+.move-status { font-size: 11px; padding: 4px 10px; border-radius: 4px; text-align: center; font-weight: 600; }
+.move-status.notstarted { background: #f8d7da; color: #b91c1c; }
+.move-status.inprogress { background: #cce5ff; color: #004085; }
+.move-status.blocked { background: #ffe5cc; color: #b95900; }
+.move-status.completed { background: #d4edda; color: #155724; }
+.move-status.onhold { background: #fff3cd; color: #8a6d00; }
+
+/* GRID 2 col */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .kpi-strip { grid-template-columns: 1fr; } .hero { grid-template-columns: 1fr; } .move-row { grid-template-columns: 1fr; gap: 6px; } }
+
+/* RISK / DECISION CARDS */
+.list-card {
+  background: white; border-radius: 14px; padding: 22px 24px;
+  box-shadow: 0 1px 4px rgba(11,61,145,.05);
+}
+.risk-item, .decision-item {
+  padding: 12px 14px; border-radius: 8px; margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 12px; align-items: center;
+}
+.risk-item { background: #fef5f5; border-left: 3px solid #b91c1c; }
+.decision-item { background: #fff8ed; border-left: 3px solid #ff8c00; }
+.risk-num, .decision-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: white;
+}
+.risk-num { background: #b91c1c; }
+.decision-num { background: #ff8c00; }
+.item-text { font-size: 13px; color: #1a2332; }
+.item-text strong { color: #0b3d91; }
+.item-meta { font-size: 11px; color: #5a6c80; }
+
+/* FOOTER */
+.footer {
+  text-align: center; color: #5a6c80; font-size: 11px;
+  padding: 16px; margin-top: 18px;
+  background: white; border-radius: 10px;
+}
+.footer strong { color: #0b3d91; }
+.legend {
+  display: flex; gap: 20px; justify-content: center; margin-top: 8px;
+  font-size: 11px; color: #5a6c80;
+}
+.legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+
+/* Print friendly */
+@media print {
+  body { background: white; padding: 0; }
+  .header, .hero, .kpi-card, .moves-section, .list-card, .footer { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="updated">📅 อัปเดต: <span id="last-update">5 พ.ค. 2569 09:00</span></div>
+  <h1>SCT — Executive Status Board</h1>
+  <div class="meta">Asset Management 2569 · Option B (Balanced) · <strong>คุณตะวัน + CFO Ava</strong> · For Executive Eyes Only</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-circle">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="76" stroke="#e3e8f0" stroke-width="14" fill="none"/>
+        <circle cx="90" cy="90" r="76" stroke="#ff8c00" stroke-width="14" fill="none"
+          stroke-dasharray="478" stroke-dashoffset="478" stroke-linecap="round"
+          id="progress-circle"/>
+      </svg>
+      <div class="hero-circle-text">
+        <div class="hero-circle-pct" id="overall-pct">0%</div>
+        <div class="hero-circle-label">Overall Progress</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-info">
+    <h2>📋 3 Moves · Strategic Intersection Plan</h2>
+    <p>Day 1 of 90 · Project Activation · เริ่มจาก SCB Switch บ้าน 51/4</p>
+    <div class="hero-status">🟡 Just Started · ทุกอย่างพร้อมเริ่ม Execute</div>
+    <div class="hero-key-deliverables">
+      <div class="hero-kd">
+        <div class="hero-kd-label">Time Remaining</div>
+        <div class="hero-kd-value">90 วัน</div>
+      </div>
+      <div class="hero-kd">
+        <div class="hero-kd-label">Tasks Completed</div>
+        <div class="hero-kd-value">0 / 14</div>
+      </div>
+      <div class="hero-kd">
+        <div class="hero-kd-label">Active Risks</div>
+        <div class="hero-kd-value">8</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-card green">
+    <div class="kpi-card-icon">💰</div>
+    <div class="kpi-card-title">Cash Unlocked</div>
+    <div class="kpi-card-row">
+      <span class="kpi-target">Target: 22.7 ลบ.</span>
+      <span class="kpi-actual">0.0 ลบ.</span>
+    </div>
+    <div class="kpi-bar"><div class="kpi-bar-fill green" style="width:0%"></div></div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 22.7 ลบ. · 0% achieved</div>
+  </div>
+  <div class="kpi-card orange">
+    <div class="kpi-card-icon">🛡️</div>
+    <div class="kpi-card-title">LG Capacity</div>
+    <div class="kpi-card-row">
+      <span class="kpi-target">Target: 40 ลบ.</span>
+      <span class="kpi-actual">0 ลบ.</span>
+    </div>
+    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:0%"></div></div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:6px">รอ Switch 51/4 · พร้อมรองรับ backlog 200 ลบ.</div>
+  </div>
+  <div class="kpi-card red">
+    <div class="kpi-card-icon">📦</div>
+    <div class="kpi-card-title">Backlog Capacity</div>
+    <div class="kpi-card-row">
+      <span class="kpi-target">Target: 200 ลบ.</span>
+      <span class="kpi-actual">0 ลบ.</span>
+    </div>
+    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:0%"></div></div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:6px">ขับเคลื่อนโดย LG capacity</div>
+  </div>
+</div>
+
+<!-- MOVES TIMELINE -->
+<div class="moves-section">
+  <div class="section-title">📋 3 Moves · Progress Timeline</div>
+
+  <div class="move-row">
+    <div class="move-light red"></div>
+    <div>
+      <div class="move-name">Move 1 · SCB Switch บ้าน 51/4</div>
+      <div class="move-name-sub">ปิด Loan 12M → ปลด FD 10M + ได้ LG 40M</div>
+    </div>
+    <div class="move-time">D14–D30</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      <div class="progress-pct">0%</div>
+    </div>
+    <div class="move-impact">
+      <strong>+10M cash · +40M LG</strong>
+      <span>Switch executed</span>
+    </div>
+    <div class="move-status notstarted">Not Started</div>
+  </div>
+
+  <div class="move-row">
+    <div class="move-light red"></div>
+    <div>
+      <div class="move-name">Move 2 · Refinance สักพนา</div>
+      <div class="move-name-sub">ประเมินใหม่ 55–65M · +12.7M cash net</div>
+    </div>
+    <div class="move-time">D15–D60</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      <div class="progress-pct">0%</div>
+    </div>
+    <div class="move-impact">
+      <strong>+12.7M cash net</strong>
+      <span>Refinance closed</span>
+    </div>
+    <div class="move-status notstarted">Not Started</div>
+  </div>
+
+  <div class="move-row">
+    <div class="move-light red"></div>
+    <div>
+      <div class="move-name">Move 3 · New Line ที่ดินเชียงรายว่าง</div>
+      <div class="move-name-sub">ทรัพย์ปลอดภาระ 3.4M → วงเงินใหม่</div>
+    </div>
+    <div class="move-time">D60–D90</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      <div class="progress-pct">0%</div>
+    </div>
+    <div class="move-impact">
+      <strong>+5M cash</strong>
+      <span>Line approved</span>
+    </div>
+    <div class="move-status notstarted">Not Started</div>
+  </div>
+</div>
+
+<!-- TWO COLUMN: RISKS + DECISIONS -->
+<div class="grid-2">
+  <div class="list-card">
+    <div class="section-title">🚨 Top Active Risks</div>
+    <div class="risk-item">
+      <div class="risk-num">1</div>
+      <div>
+        <div class="item-text"><strong>Concentration:</strong> คุณตะวันค้ำเกือบทุกวง — single point of failure</div>
+        <div class="item-meta">Severity: HIGH · Probability: HIGH · Score: 9</div>
+      </div>
+      <div style="font-size:18px">🔴</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-num">2</div>
+      <div>
+        <div class="item-text"><strong>Document gap:</strong> เอกสารไม่ครบใน 7 วัน → ธนาคาร discount valuation</div>
+        <div class="item-meta">Severity: HIGH · Probability: MEDIUM · Score: 6</div>
+      </div>
+      <div style="font-size:18px">🟠</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-num">3</div>
+      <div>
+        <div class="item-text"><strong>Cash bridge:</strong> 12 ลบ. ไม่พอสำหรับ Switch 51/4</div>
+        <div class="item-meta">Severity: HIGH · Probability: LOW · Score: 3</div>
+      </div>
+      <div style="font-size:18px">🟡</div>
+    </div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:10px;text-align:right">📋 รายละเอียดทั้งหมด 8 ความเสี่ยง → ดูใน Action Plan Master · Sheet 06_Risk_Register</div>
+  </div>
+
+  <div class="list-card">
+    <div class="section-title">⚡ Decisions Required Now</div>
+    <div class="decision-item">
+      <div class="decision-num">1</div>
+      <div>
+        <div class="item-text"><strong>อนุมัติแผน Switch 51/4</strong> — โดย CEO + คุณตะวัน</div>
+        <div class="item-meta">Deadline: ภายใน 7 วัน · Impact: +40M LG capacity</div>
+      </div>
+      <div style="font-size:18px">⏰</div>
+    </div>
+    <div class="decision-item">
+      <div class="decision-num">2</div>
+      <div>
+        <div class="item-text"><strong>Source bridge cash 12 ลบ.</strong> — เลือกจาก revolving / FD</div>
+        <div class="item-meta">Deadline: ภายใน 14 วัน · Impact: enables Move 2</div>
+      </div>
+      <div style="font-size:18px">⏰</div>
+    </div>
+    <div class="decision-item">
+      <div class="decision-num">3</div>
+      <div>
+        <div class="item-text"><strong>Mandate ฝ่ายการเงิน</strong> ทำ Bank Pack 6 ชุดให้ครบ</div>
+        <div class="item-meta">Deadline: ภายใน 7 วัน · Impact: enables ทุก Move</div>
+      </div>
+      <div style="font-size:18px">⏰</div>
+    </div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:10px;text-align:right">📋 บันทึกการตัดสินใจที่ Action Plan Master · Sheet 05_Decisions_Log</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div style="margin-bottom:8px"><strong>Single Source of Truth:</strong> 11_Action_Plan_Tracker/SCT_Action_Plan_Master.xlsx</div>
+  <div>Status Board นี้ regenerate อัตโนมัติทุกจันทร์โดย CFO Ava · <strong>For executive eyes — read only</strong></div>
+  <div class="legend">
+    <span><span class="legend-dot" style="background:#b91c1c"></span>Not Started</span>
+    <span><span class="legend-dot" style="background:#1e5fc7"></span>In Progress</span>
+    <span><span class="legend-dot" style="background:#ff8c00"></span>Blocked</span>
+    <span><span class="legend-dot" style="background:#1f7a3a"></span>Completed</span>
+    <span><span class="legend-dot" style="background:#eab308"></span>On Hold</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+// Animate progress circle on load
+document.addEventListener('DOMContentLoaded', () => {
+  const overallPct = 0; // ปรับตามข้อมูลจริงทุกสัปดาห์
+  const circle = document.getElementById('progress-circle');
+  const circumference = 478;
+  const offset = circumference - (overallPct / 100) * circumference;
+  setTimeout(() => { circle.style.transition = 'stroke-dashoffset 1.2s ease-out'; circle.style.strokeDashoffset = offset; }, 100);
+  document.getElementById('overall-pct').textContent = overallPct + '%';
+});
+</script>
+</body>
+</html>
