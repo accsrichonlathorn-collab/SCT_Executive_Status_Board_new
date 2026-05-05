@@ -43,7 +43,7 @@ body {
   grid-template-columns: 200px 1fr;
   gap: 28px;
   align-items: center;
-  border-left: 6px solid #ff8c00;
+  border-left: 6px solid #1e5fc7;
   box-shadow: 0 2px 8px rgba(11,61,145,.06);
 }
 .hero-circle {
@@ -64,7 +64,7 @@ body {
   display: inline-block;
   padding: 8px 18px; border-radius: 22px;
   font-weight: 600; font-size: 14px;
-  background: #fff4d6; color: #8a6d00;
+  background: #cce5ff; color: #004085;
 }
 .hero-key-deliverables { display: flex; gap: 16px; margin-top: 14px; }
 .hero-kd { background: #f4f6fa; padding: 10px 14px; border-radius: 8px; flex: 1; }
@@ -199,7 +199,7 @@ body {
     <div class="hero-circle">
       <svg width="180" height="180" viewBox="0 0 180 180">
         <circle cx="90" cy="90" r="76" stroke="#e3e8f0" stroke-width="14" fill="none"/>
-        <circle cx="90" cy="90" r="76" stroke="#ff8c00" stroke-width="14" fill="none"
+        <circle cx="90" cy="90" r="76" stroke="#1e5fc7" stroke-width="14" fill="none"
           stroke-dasharray="478" stroke-dashoffset="478" stroke-linecap="round"
           id="progress-circle"/>
       </svg>
@@ -211,8 +211,8 @@ body {
   </div>
   <div class="hero-info">
     <h2>📋 3 Moves · Strategic Intersection Plan</h2>
-    <p>Day 1 of 90 · Project Activation · เริ่มจาก SCB Switch บ้าน 51/4</p>
-    <div class="hero-status">🟡 Just Started · ทุกอย่างพร้อมเริ่ม Execute</div>
+    <p>Day 1 of 90 · Execution Started · Memo SCB + Refinance สักพนา kicked off</p>
+    <div class="hero-status">🔵 In Progress · 3 tasks active · Move 1 &amp; Move 2 เริ่มแล้ว</div>
     <div class="hero-key-deliverables">
       <div class="hero-kd">
         <div class="hero-kd-label">Time Remaining</div>
@@ -232,15 +232,15 @@ body {
 
 <!-- KPI STRIP -->
 <div class="kpi-strip">
-  <div class="kpi-card green">
+  <div class="kpi-card red">
     <div class="kpi-card-icon">💰</div>
     <div class="kpi-card-title">Cash Unlocked</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 22.7 ลบ.</span>
-      <span class="kpi-actual">0.0 ลบ.</span>
+      <span class="kpi-actual">-6.0 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill green" style="width:0%"></div></div>
-    <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 22.7 ลบ. · 0% achieved</div>
+    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:0%"></div></div>
+    <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 28.7 ลบ. · cash bridge 12M ใน flight (M1.1 in progress)</div>
   </div>
   <div class="kpi-card orange">
     <div class="kpi-card-icon">🛡️</div>
@@ -269,39 +269,39 @@ body {
   <div class="section-title">📋 3 Moves · Progress Timeline</div>
 
   <div class="move-row">
-    <div class="move-light red"></div>
+    <div class="move-light blue"></div>
     <div>
       <div class="move-name">Move 1 · SCB Switch บ้าน 51/4</div>
-      <div class="move-name-sub">ปิด Loan 12M → ปลด FD 10M + ได้ LG 40M</div>
+      <div class="move-name-sub">ปิด Loan 12M → ปลด FD 10M + ได้ LG 40M · 2/6 tasks active</div>
     </div>
     <div class="move-time">D14–D30</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-      <div class="progress-pct">0%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:21%"></div></div>
+      <div class="progress-pct">21%</div>
     </div>
     <div class="move-impact">
       <strong>+10M cash · +40M LG</strong>
       <span>Switch executed</span>
     </div>
-    <div class="move-status notstarted">Not Started</div>
+    <div class="move-status inprogress">In Progress</div>
   </div>
 
   <div class="move-row">
-    <div class="move-light red"></div>
+    <div class="move-light blue"></div>
     <div>
       <div class="move-name">Move 2 · Refinance สักพนา</div>
-      <div class="move-name-sub">ประเมินใหม่ 55–65M · +12.7M cash net</div>
+      <div class="move-name-sub">ประเมินใหม่ 55–65M · +12.7M cash net · M2.1 done (แจ้งเงินทุนแอดวานซ์)</div>
     </div>
     <div class="move-time">D15–D60</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-      <div class="progress-pct">0%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+      <div class="progress-pct">20%</div>
     </div>
     <div class="move-impact">
       <strong>+12.7M cash net</strong>
       <span>Refinance closed</span>
     </div>
-    <div class="move-status notstarted">Not Started</div>
+    <div class="move-status inprogress">In Progress</div>
   </div>
 
   <div class="move-row">
@@ -346,10 +346,10 @@ body {
     <div class="risk-item">
       <div class="risk-num">3</div>
       <div>
-        <div class="item-text"><strong>Cash bridge:</strong> 12 ลบ. ไม่พอสำหรับ Switch 51/4</div>
-        <div class="item-meta">Severity: HIGH · Probability: LOW · Score: 3</div>
+        <div class="item-text"><strong>เซ็นสัญญาช้า:</strong> APB ออกไม่ได้ → cash gap 10–15M / โครงการ 100M</div>
+        <div class="item-meta">Severity: HIGH · Probability: MEDIUM · Score: 6</div>
       </div>
-      <div style="font-size:18px">🟡</div>
+      <div style="font-size:18px">🟠</div>
     </div>
     <div style="font-size:11px;color:#5a6c80;margin-top:10px;text-align:right">📋 รายละเอียดทั้งหมด 8 ความเสี่ยง → ดูใน Action Plan Master · Sheet 06_Risk_Register</div>
   </div>
@@ -359,16 +359,16 @@ body {
     <div class="decision-item">
       <div class="decision-num">1</div>
       <div>
-        <div class="item-text"><strong>อนุมัติแผน Switch 51/4</strong> — โดย CEO + คุณตะวัน</div>
-        <div class="item-meta">Deadline: ภายใน 7 วัน · Impact: +40M LG capacity</div>
+        <div class="item-text"><strong>D002: Source bridge cash 12 ลบ.</strong> — เลือกจาก revolving / FD บางส่วน</div>
+        <div class="item-meta">Deadline: ภายใน 14 วัน (18 พ.ค.) · Impact: enables Move 1.4 (ปิด Loan SCB)</div>
       </div>
       <div style="font-size:18px">⏰</div>
     </div>
     <div class="decision-item">
       <div class="decision-num">2</div>
       <div>
-        <div class="item-text"><strong>Source bridge cash 12 ลบ.</strong> — เลือกจาก revolving / FD</div>
-        <div class="item-meta">Deadline: ภายใน 14 วัน · Impact: enables Move 2</div>
+        <div class="item-text"><strong>D003: เลือก 2-3 ธนาคารคู่แข่ง</strong> สำหรับ Refinance สักพนา</div>
+        <div class="item-meta">Deadline: ภายใน 30 วัน · Impact: term sheet benchmarking ก่อน execute</div>
       </div>
       <div style="font-size:18px">⏰</div>
     </div>
@@ -402,7 +402,7 @@ body {
 <script>
 // Animate progress circle on load
 document.addEventListener('DOMContentLoaded', () => {
-  const overallPct = 0; // ปรับตามข้อมูลจริงทุกสัปดาห์
+  const overallPct = 16; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
   const circle = document.getElementById('progress-circle');
   const circumference = 478;
   const offset = circumference - (overallPct / 100) * circumference;
