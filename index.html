@@ -188,7 +188,7 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 10:54</span></div>
+  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 10:59</span></div>
   <h1>SCT — Executive Status Board</h1>
   <div class="meta">Asset Management 2569 · Option B (Balanced) · <strong>คุณตะวัน + CFO Ava</strong> · For Executive Eyes Only</div>
 </div>
@@ -204,7 +204,7 @@ body {
           id="progress-circle"/>
       </svg>
       <div class="hero-circle-text">
-        <div class="hero-circle-pct" id="overall-pct">19%</div>
+        <div class="hero-circle-pct" id="overall-pct">27%</div>
         <div class="hero-circle-label">Overall Progress</div>
       </div>
     </div>
@@ -220,7 +220,7 @@ body {
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Tasks Completed</div>
-        <div class="hero-kd-value">1 / 12</div>
+        <div class="hero-kd-value">2 / 12</div>
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Active Risks</div>
@@ -237,9 +237,9 @@ body {
     <div class="kpi-card-title">Cash Unlocked</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 22.7 ลบ.</span>
-      <span class="kpi-actual">11.3 ลบ.</span>
+      <span class="kpi-actual">23.4 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:50%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:100%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 20.8 ลบ. · 8% achieved · cash bridge 12M ใน flight (M1.1 in progress)</div>
   </div>
   <div class="kpi-card orange">
@@ -247,9 +247,9 @@ body {
     <div class="kpi-card-title">LG Capacity</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 40 ลบ.</span>
-      <span class="kpi-actual">0 ลบ.</span>
+      <span class="kpi-actual">40 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:0%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:100%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">รอ Switch 51/4 · พร้อมรองรับ backlog 200 ลบ.</div>
   </div>
   <div class="kpi-card red">
@@ -257,9 +257,9 @@ body {
     <div class="kpi-card-title">Backlog Capacity</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 200 ลบ.</span>
-      <span class="kpi-actual">0 ลบ.</span>
+      <span class="kpi-actual">200 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:0%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:100%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">ขับเคลื่อนโดย LG capacity</div>
   </div>
 </div>
@@ -276,14 +276,14 @@ body {
     </div>
     <div class="move-time">D14–D30</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-      <div class="progress-pct">0%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:17%"></div></div>
+      <div class="progress-pct">17%</div>
     </div>
     <div class="move-impact">
       <strong>+10M cash · +40M LG</strong>
       <span>Switch executed</span>
     </div>
-    <div class="move-status notstarted">Not Started</div>
+    <div class="move-status inprogress">In Progress</div>
   </div>
 
   <div class="move-row">
@@ -402,7 +402,7 @@ body {
 <script>
 // Animate progress circle on load
 document.addEventListener('DOMContentLoaded', () => {
-  const overallPct = 19; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
+  const overallPct = 27; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
   const circle = document.getElementById('progress-circle');
   const circumference = 478;
   const offset = circumference - (overallPct / 100) * circumference;
