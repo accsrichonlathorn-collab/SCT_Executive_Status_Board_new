@@ -188,7 +188,7 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 09:16</span></div>
+  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 09:22</span></div>
   <h1>SCT — Executive Status Board</h1>
   <div class="meta">Asset Management 2569 · Option B (Balanced) · <strong>คุณตะวัน + CFO Ava</strong> · For Executive Eyes Only</div>
 </div>
@@ -204,7 +204,7 @@ body {
           id="progress-circle"/>
       </svg>
       <div class="hero-circle-text">
-        <div class="hero-circle-pct" id="overall-pct">11%</div>
+        <div class="hero-circle-pct" id="overall-pct">8%</div>
         <div class="hero-circle-label">Overall Progress</div>
       </div>
     </div>
@@ -212,7 +212,7 @@ body {
   <div class="hero-info">
     <h2>📋 3 Moves · Strategic Intersection Plan</h2>
     <p>Day 1 of 90 · Execution Started · Memo SCB + Refinance สักพนา kicked off</p>
-    <div class="hero-status">🔵 In Progress · 9 tasks active · ทุก Move kickoff แล้ว</div>
+    <div class="hero-status">🔵 In Progress · 12 tasks active · ทุก Move kickoff แล้ว</div>
     <div class="hero-key-deliverables">
       <div class="hero-kd">
         <div class="hero-kd-label">Time Remaining</div>
@@ -220,7 +220,7 @@ body {
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Tasks Completed</div>
-        <div class="hero-kd-value">1 / 14</div>
+        <div class="hero-kd-value">0 / 14</div>
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Active Risks</div>
@@ -237,9 +237,9 @@ body {
     <div class="kpi-card-title">Cash Unlocked</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 22.7 ลบ.</span>
-      <span class="kpi-actual">-9.2 ลบ.</span>
+      <span class="kpi-actual">1.9 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:0%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:8%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 20.8 ลบ. · 8% achieved · cash bridge 12M ใน flight (M1.1 in progress)</div>
   </div>
   <div class="kpi-card orange">
@@ -276,14 +276,14 @@ body {
     </div>
     <div class="move-time">D14–D30</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:16%"></div></div>
-      <div class="progress-pct">16%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:1%"></div></div>
+      <div class="progress-pct">1%</div>
     </div>
     <div class="move-impact">
       <strong>+10M cash · +40M LG</strong>
       <span>Switch executed</span>
     </div>
-    <div class="move-status blocked">Blocked</div>
+    <div class="move-status inprogress">In Progress</div>
   </div>
 
   <div class="move-row">
@@ -294,8 +294,8 @@ body {
     </div>
     <div class="move-time">D15–D60</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:11%"></div></div>
-      <div class="progress-pct">11%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:21%"></div></div>
+      <div class="progress-pct">21%</div>
     </div>
     <div class="move-impact">
       <strong>+12.7M cash net</strong>
@@ -402,7 +402,7 @@ body {
 <script>
 // Animate progress circle on load
 document.addEventListener('DOMContentLoaded', () => {
-  const overallPct = 11; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
+  const overallPct = 8; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
   const circle = document.getElementById('progress-circle');
   const circumference = 478;
   const offset = circumference - (overallPct / 100) * circumference;
