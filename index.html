@@ -188,7 +188,7 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 11:21</span></div>
+  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 11:22</span></div>
   <h1>SCT — Executive Status Board</h1>
   <div class="meta">Asset Management 2569 · Option B (Balanced) · <strong>คุณตะวัน + CFO Ava</strong> · For Executive Eyes Only</div>
 </div>
@@ -204,7 +204,7 @@ body {
           id="progress-circle"/>
       </svg>
       <div class="hero-circle-text">
-        <div class="hero-circle-pct" id="overall-pct">44%</div>
+        <div class="hero-circle-pct" id="overall-pct">62%</div>
         <div class="hero-circle-label">Overall Progress</div>
       </div>
     </div>
@@ -212,7 +212,7 @@ body {
   <div class="hero-info">
     <h2>📋 3 Moves · Strategic Intersection Plan</h2>
     <p>Day 1 of 90 · Execution Started · Memo SCB + Refinance สักพนา kicked off</p>
-    <div class="hero-status">🔵 In Progress · 5 tasks active · ทุก Move kickoff แล้ว</div>
+    <div class="hero-status">🔵 In Progress · 6 tasks active · ทุก Move kickoff แล้ว</div>
     <div class="hero-key-deliverables">
       <div class="hero-kd">
         <div class="hero-kd-label">Time Remaining</div>
@@ -220,7 +220,7 @@ body {
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Tasks Completed</div>
-        <div class="hero-kd-value">4 / 12</div>
+        <div class="hero-kd-value">6 / 12</div>
       </div>
       <div class="hero-kd">
         <div class="hero-kd-label">Active Risks</div>
@@ -237,7 +237,7 @@ body {
     <div class="kpi-card-title">Cash Unlocked</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 22.7 ลบ.</span>
-      <span class="kpi-actual">-0.6 ลบ.</span>
+      <span class="kpi-actual">-2.6 ลบ.</span>
     </div>
     <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:0%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">Gap: 20.8 ลบ. · 8% achieved · cash bridge 12M ใน flight (M1.1 in progress)</div>
@@ -247,9 +247,9 @@ body {
     <div class="kpi-card-title">LG Capacity</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 40 ลบ.</span>
-      <span class="kpi-actual">40 ลบ.</span>
+      <span class="kpi-actual">0 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:100%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill orange" style="width:0%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">รอ Switch 51/4 · พร้อมรองรับ backlog 200 ลบ.</div>
   </div>
   <div class="kpi-card red">
@@ -257,9 +257,9 @@ body {
     <div class="kpi-card-title">Backlog Capacity</div>
     <div class="kpi-card-row">
       <span class="kpi-target">Target: 200 ลบ.</span>
-      <span class="kpi-actual">200 ลบ.</span>
+      <span class="kpi-actual">0 ลบ.</span>
     </div>
-    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:100%"></div></div>
+    <div class="kpi-bar"><div class="kpi-bar-fill red" style="width:0%"></div></div>
     <div style="font-size:11px;color:#5a6c80;margin-top:6px">ขับเคลื่อนโดย LG capacity</div>
   </div>
 </div>
@@ -276,8 +276,8 @@ body {
     </div>
     <div class="move-time">D14–D30</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
-      <div class="progress-pct">50%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+      <div class="progress-pct">88%</div>
     </div>
     <div class="move-impact">
       <strong>+10M cash · +40M LG</strong>
@@ -402,7 +402,7 @@ body {
 <script>
 // Animate progress circle on load
 document.addEventListener('DOMContentLoaded', () => {
-  const overallPct = 44; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
+  const overallPct = 62; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
   const circle = document.getElementById('progress-circle');
   const circumference = 478;
   const offset = circumference - (overallPct / 100) * circumference;
