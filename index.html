@@ -188,7 +188,7 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 10:10</span></div>
+  <div class="updated">📅 อัปเดต: <span id="last-update">6 พ.ค. 2569 10:32</span></div>
   <h1>SCT — Executive Status Board</h1>
   <div class="meta">Asset Management 2569 · Option B (Balanced) · <strong>คุณตะวัน + CFO Ava</strong> · For Executive Eyes Only</div>
 </div>
@@ -204,7 +204,7 @@ body {
           id="progress-circle"/>
       </svg>
       <div class="hero-circle-text">
-        <div class="hero-circle-pct" id="overall-pct">9%</div>
+        <div class="hero-circle-pct" id="overall-pct">16%</div>
         <div class="hero-circle-label">Overall Progress</div>
       </div>
     </div>
@@ -312,8 +312,8 @@ body {
     </div>
     <div class="move-time">D60–D90</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" style="width:1%"></div></div>
-      <div class="progress-pct">1%</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+      <div class="progress-pct">100%</div>
     </div>
     <div class="move-impact">
       <strong>+5M cash</strong>
@@ -402,7 +402,7 @@ body {
 <script>
 // Animate progress circle on load
 document.addEventListener('DOMContentLoaded', () => {
-  const overallPct = 9; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
+  const overallPct = 16; // sync จาก SCT_Dashboard.xlsx · 5 พ.ค. 2569
   const circle = document.getElementById('progress-circle');
   const circumference = 478;
   const offset = circumference - (overallPct / 100) * circumference;
